@@ -1,11 +1,13 @@
-import { Button, TextField } from '@mui/material'
+import { Button, Grid2, Stack, TextField } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
 import { ApiUrl } from "../../constants/ApiURL"
 import { Context } from "../../App"
 import { useNavigate } from "react-router-dom";
+import "./../../styles/login.scss"
 
 function Login() {
     const navigate = useNavigate();
+    const [show, setShow] = useState(false)
     const { user, setUser, password, setPassword, setLogin, login } = useContext(Context)
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -46,13 +48,31 @@ function Login() {
         setPassword(e.target.value)
     }
 
+    const handleClick = () => {
+        setShow(!show)
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
-            <TextField value={user} onChange={handleUser} />
-            <TextField value={password} onChange={handlePassword} />
-            <Button variant="raised" label="Submit" type="submit">Login</Button>
-            <h1>{login === "success" ? "login successfull" : login}</h1>
-        </form>
+        <div className="loginContainer">
+            <div>
+                <Stack spacing={2} direction="row">
+                    <Button style={{ textTransform: "none" }} variant="contained" label="Submit" type="submit">Register</Button>
+                    <Button style={{ textTransform: "none" }} variant="contained" label="Submit" type="submit" onClick={handleClick}>Login</Button>
+                </Stack>
+            </div>
+            {
+                show && <div className='loginText'>
+                    <form onSubmit={handleSubmit}>
+                        <Grid2 container direction={"column"} spacing={2}>
+                            <TextField value={user} onChange={handleUser} />
+                            <TextField value={password} onChange={handlePassword} />
+                        </Grid2>
+                        <Button variant="contained" label="Submit" type="submit">Submit</Button>
+                    </form>
+                    <h1>{login === "success" ? "login successfull" : login}</h1>
+                </div>
+            }
+        </div>
     )
 }
 
