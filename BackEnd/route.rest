@@ -1,0 +1,45 @@
+GET http://localhost:3001/subscribers
+
+###
+GET http://localhost:3001/subscribers/66d427a71e7cba5aecda8547
+
+###
+POST http://localhost:3001/subscribers
+Content-Type: application/json
+
+{
+    "name": "shru",
+    "subscribedToChannel": "shru"
+}
+
+###
+DELETE http://localhost:3001/subscribers/66d6ccef3bc70f77aa18b937
+
+###
+PATCH http://localhost:3001/subscribers/66d88c7a2e90dc718b54dc7f
+Content-Type: application/json
+
+{
+    "name": "Amazingg"
+}
+
+###
+GET http://localhost:3001/login
+
+###
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+    "name": "shruthi",
+    "password": "shruthi"
+}
+
+###
+POST http://localhost:3001/login/users
+Content-Type: application/json
+
+{
+    "name": "shruthi",
+    "password": "shruthi"
+}
