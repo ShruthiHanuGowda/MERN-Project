@@ -43,3 +43,26 @@ Content-Type: application/json
     "name": "shruthi",
     "password": "shruthi"
 }
+
+### get all registered users
+GET http://localhost:3001/register
+
+###
+POST http://localhost:3001/register
+Content-Type: application/json
+
+{
+    "name": "shruthi",
+    "email": "shruthi.anugowda@gmail.com",
+    "password": "shruthi"
+}
+
+###
+POST http://localhost:3001/register/registeredUsers
+Content-Type: application/json
+
+{
+    "name": "shruthi",
+    "email": "shruthi.anugowda@gmail.com",
+    "password": "shruthi"
+}

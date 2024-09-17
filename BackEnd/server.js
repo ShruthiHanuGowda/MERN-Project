@@ -21,13 +21,17 @@ app.use(express.json())
 //     res.json({ message: 'Hello from Node.js!' });
 // });
 
-//routes file setup
+//routes for subscriber 
 const subscribersRouter = require("./routes/subscribers")
 app.use('/subscribers', subscribersRouter)
 
 //routes for login
 const loginRouter = require("./routes/login")
 app.use("/login", loginRouter)
+
+//routes for register 
+const registerRouter = require("./routes/register")
+app.use("/register", registerRouter)
 
 //to check the frontend build 
 // app.use(express.static(path.join(__dirname, 'client/build')));

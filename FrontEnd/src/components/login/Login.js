@@ -4,10 +4,12 @@ import { ApiUrl } from "../../constants/ApiURL"
 import { Context } from "../../App"
 import { useNavigate } from "react-router-dom";
 import "./../../styles/login.scss"
+import Register from '../register/Register';
 
 function Login() {
     const navigate = useNavigate();
     const [show, setShow] = useState(false)
+    const [showRegister, setshowRegister] = useState(false)
     const { user, setUser, password, setPassword, setLogin, login } = useContext(Context)
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -48,31 +50,42 @@ function Login() {
         setPassword(e.target.value)
     }
 
-    const handleClick = () => {
+    const handleLoginClick = () => {
         setShow(!show)
+        setshowRegister(false)
     }
 
+    const handleRegisterClick = () => {
+        setshowRegister(!showRegister)
+        setShow(false)
+    }
     return (
         <div className="loginContainer">
             <div>
                 <Stack spacing={2} direction="row">
-                    <Button style={{ textTransform: "none" }} variant="contained" label="Submit" type="submit">Register</Button>
-                    <Button style={{ textTransform: "none" }} variant="contained" label="Submit" type="submit" onClick={handleClick}>Login</Button>
+                    <Button style={{ textTransform: "none" }} variant="contained" label="Submit" type="submit" onClick={handleRegisterClick}>Register</Button>
+                    <Button style={{ textTransform: "none" }} variant="contained" label="Submit" type="submit" onClick={handleLoginClick}>Login</Button>
                 </Stack>
             </div>
             {
-                show && <div className='loginText'>
+                show && <div style={{ marginLeft: "10px" }} className='loginText'>
                     <form onSubmit={handleSubmit}>
                         <Grid2 container direction={"column"} spacing={2}>
-                            <TextField value={user} onChange={handleUser} />
-                            <TextField value={password} onChange={handlePassword} />
+                            <TextField value={user} label="User Name" onChange={handleUser} />
+                            <TextField value={password} label="Password" onChange={handlePassword} />
                         </Grid2>
-                        <Button variant="contained" label="Submit" type="submit">Submit</Button>
+                        <div style={{ marginTop: "10px" }}>
+                            <Button variant="contained" label="Submit" type="submit">Submit</Button>
+                        </div>
                     </form>
                     <h1>{login === "success" ? "login successfull" : login}</h1>
                 </div>
             }
-        </div>
+
+            {
+                showRegister && <Register />
+            }
+        </div >
     )
 }
 
