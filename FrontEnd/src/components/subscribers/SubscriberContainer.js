@@ -46,7 +46,6 @@ export default function SurbscriberContainer() {
                     toggleForm && <SubscriberForm />
                 }
                 </div>
-
             </div>
         </>
     )

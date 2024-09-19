@@ -8,7 +8,6 @@ function SearchBar() {
 
     const handleSearch = (e) => {
         e.preventDefault()
-        console.log("subscriber", subscriber)
         const text = e.target.value;
         const filteredUser = subscriber.filter((user) => {
             if (user.name.includes(text)) {

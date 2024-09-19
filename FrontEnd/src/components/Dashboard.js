@@ -4,9 +4,9 @@ import Logout from "./logout/Logout";
 
 function Dashboard() {
     return (
-        <div>
+        <div style={{ display: "flex", }}>
             <SurbscriberContainer />
-            <div style={{ float: "right" }}>
+            <div style={{ marginLeft: "auto" }}>
                 <Logout />
             </div>
         </div>
