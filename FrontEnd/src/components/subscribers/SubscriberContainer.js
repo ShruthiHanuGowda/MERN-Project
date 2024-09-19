@@ -39,14 +39,14 @@ export default function SurbscriberContainer() {
                 </Stack>
                 <div>
                     {
-                        toggle && (<><SearchBar /> <ShowSubscriberList /></>)
+                        toggle && (<><SearchBar /> <ShowSubscriberList /> <PaginationSetUp /></>)
                     }
                 </div>
                 <div>{
                     toggleForm && <SubscriberForm />
                 }
                 </div>
-                <PaginationSetUp />
+
             </div>
         </>
     )

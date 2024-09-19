@@ -26,13 +26,16 @@ function App() {
   const [password, setPassword] = useState("")
   const [login, setLogin] = useState("")
   const [showSubscriber, setShowSubscriber] = useState(false);
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   return (
     <Router>
       <Context.Provider value={{
         subscriber, setsubscriber, toggle, setToggle, toggleForm, setToggleForm, isRefresh, setRefresh,
         name, setName, subscribedChannel, setSubscribedChannel, subscribedChannel, setSubscribedChannel, showText, setShowText, subscriberID, setSubscriberID
-        , user, setUser, password, setPassword, login, setLogin, showSubscriber, setShowSubscriber
+        , user, setUser, password, setPassword, login, setLogin, showSubscriber, setShowSubscriber, data, setData, page, setPage, totalPages, setTotalPages
       }}>
         <div className="App" style={{ display: "flex" }}>
           <div>
