@@ -5,11 +5,9 @@ const userList = ["h", "shruthi", "hanumanthe gowda", "pushpa", "kiran", "nayana
 
 function SearchUser() {
     const [user, setUser] = useState(userList)
-
     const handleSearch = (e) => {
         const text = e.target.value;
         const filteredUser = userList.filter((user) => (user.includes(text)))
-        console.log("filteredUser", filteredUser)
         setUser(filteredUser)
     }
     return (

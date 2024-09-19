@@ -34,7 +34,7 @@ function Login() {
             },
             body: JSON.stringify({ "name": user, "password": password })
         }
-        fetch(`${ApiUrl}/login/users`, options).then((response) => response.json()
+        fetch(`${ApiUrl}/register/users`, options).then((response) => response.json()
         ).then((data) => {
             console.log("data", data)
             setLogin(data)

@@ -33,4 +33,25 @@ router.post("/", async (req, res) => {
     }
 })
 
+//login user
+//login user check
+router.post("/users", async (req, res) => {
+    const user = await Register.find({})
+    const userName = user.find((user) => user.name === req.body.name);
+
+    if (userName == null) {
+        return res.status(400).send("cannot find user")
+    }
+
+    try {
+        if (await bcrypt.compare(req.body.password, userName.password)) {
+            res.status(201).json("success")
+        } else {
+            res.status(201).json("user not found")
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+
 module.exports = router

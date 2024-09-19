@@ -6,6 +6,7 @@ import ShowSubscriberList from './ShowSubscriber';
 import SubscriberForm from "./SubscriberForm"
 import { Context } from "../../App"
 import { Link } from 'react-router-dom';
+import SearchBar from '../search/SearchBar';
 
 export default function SurbscriberContainer() {
     const { setsubscriber, setSubscribedChannel, isRefresh, setRefresh, setToggleForm, toggleForm, toggle,
@@ -36,13 +37,12 @@ export default function SurbscriberContainer() {
                 </Stack>
                 <div>
                     {
-                        toggle && <ShowSubscriberList />
+                        toggle && (<><SearchBar /> <ShowSubscriberList /></>)
                     }
                 </div>
-                <div>
-                    {
-                        toggleForm && <SubscriberForm />
-                    }
+                <div>{
+                    toggleForm && <SubscriberForm />
+                }
                 </div></div>
         </>
     )

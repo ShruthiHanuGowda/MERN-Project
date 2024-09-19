@@ -26,12 +26,16 @@ const subscribersRouter = require("./routes/subscribers")
 app.use('/subscribers', subscribersRouter)
 
 //routes for login
-const loginRouter = require("./routes/login")
-app.use("/login", loginRouter)
+// const loginRouter = require("./routes/login")
+// app.use("/login", loginRouter)
 
 //routes for register 
 const registerRouter = require("./routes/register")
 app.use("/register", registerRouter)
+
+//routes for pagination
+const paginationRouter = require("./routes/pagination")
+app.use("/users", paginationRouter)
 
 //to check the frontend build 
 // app.use(express.static(path.join(__dirname, 'client/build')));

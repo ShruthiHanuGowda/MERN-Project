@@ -10,7 +10,6 @@ import Login from "./components/login/Login"
 import Dashboard from "./components/Dashboard";
 import Calculations from "./components/calculations/Calculations";
 import SearchUser from "./components/search/SearchUser";
-import Register from "./components/register/Register"
 
 export const Context = React.createContext(composeWithDevTools())
 

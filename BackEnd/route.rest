@@ -23,27 +23,6 @@ Content-Type: application/json
     "name": "Amazingg"
 }
 
-###
-GET http://localhost:3001/login
-
-###
-POST http://localhost:3001/login
-Content-Type: application/json
-
-{
-    "name": "shruthi",
-    "password": "shruthi"
-}
-
-###
-POST http://localhost:3001/login/users
-Content-Type: application/json
-
-{
-    "name": "shruthi",
-    "password": "shruthi"
-}
-
 ### get all registered users
 GET http://localhost:3001/register
 
@@ -58,11 +37,16 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3001/register/registeredUsers
+POST http://localhost:3001/register/users
 Content-Type: application/json
 
 {
     "name": "shruthi",
-    "email": "shruthi.anugowda@gmail.com",
     "password": "shruthi"
 }
+
+###
+GET  http://localhost:3001/users
+
+###
+GET http://localhost:3001/users?page=2&limit=5
