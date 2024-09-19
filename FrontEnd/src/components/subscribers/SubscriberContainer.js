@@ -7,10 +7,12 @@ import SubscriberForm from "./SubscriberForm"
 import { Context } from "../../App"
 import { Link } from 'react-router-dom';
 import SearchBar from '../search/SearchBar';
+import PaginationSetUp from '../PaginationSetUp';
 
 export default function SurbscriberContainer() {
     const { setsubscriber, setSubscribedChannel, isRefresh, setRefresh, setToggleForm, toggleForm, toggle,
         setToggle, setName } = useContext(Context)
+
     useEffect(() => {
         if (isRefresh) {
             fetch(`${ApiUrl}/subscribers`).then((response) => { return response.json() }).then((data) => (setRefresh(false), setsubscriber(data)))
@@ -43,7 +45,9 @@ export default function SurbscriberContainer() {
                 <div>{
                     toggleForm && <SubscriberForm />
                 }
-                </div></div>
+                </div>
+                <PaginationSetUp />
+            </div>
         </>
     )
 }
