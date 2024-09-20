@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ApiUrl } from "../../constants/ApiURL"
+import { Context } from '../../App';
 
-function DeleteSubscriber({ setRefresh, SubscriberId }) {
+function DeleteSubscriber() {
+    const { setRefresh, SubscriberId } = useContext(Context)
     const handleDelete = () => {
         const options = {
             method: "delete",

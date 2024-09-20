@@ -29,6 +29,9 @@ function App() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [filteredUser, setFilteredUser] = useState("")
+  const [inputValue, setInputValue] = useState("")
+
 
   return (
     <Router>
@@ -36,6 +39,7 @@ function App() {
         subscriber, setsubscriber, toggle, setToggle, toggleForm, setToggleForm, isRefresh, setRefresh,
         name, setName, subscribedChannel, setSubscribedChannel, subscribedChannel, setSubscribedChannel, showText, setShowText, subscriberID, setSubscriberID
         , user, setUser, password, setPassword, login, setLogin, showSubscriber, setShowSubscriber, data, setData, page, setPage, totalPages, setTotalPages
+        , filteredUser, setFilteredUser, inputValue, setInputValue
       }}>
         <div className="App" style={{ display: "flex" }}>
           <div>

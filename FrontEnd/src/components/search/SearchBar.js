@@ -4,27 +4,30 @@ import "./../../styles/login.scss"
 import { Context } from '../../App'
 
 function SearchBar() {
-    const { subscriber, setsubscriber } = useContext(Context)
+    const { subscriber, filteredUser, setFilteredUser, inputValue, setInputValue } = useContext(Context)
+
+    console.log("values", subscriber, filteredUser)
 
     const handleSearch = (e) => {
         e.preventDefault()
-        const text = e.target.value;
-        const filteredUser = subscriber.filter((user) => {
+        const text = e.target.value
+        setInputValue(text)
+
+        const filterUser = subscriber.filter((user) => {
             if (user.name.includes(text)) {
                 return user.name
             }
         })
-        setsubscriber(filteredUser)
+        setFilteredUser(filterUser)
     }
     return (
         <div className='searchBar'><TextField
             id="input1"
             label="Search User Name"
-            // value={name}
-            onChange={(e) => handleSearch(e)}
+            value={inputValue}
+            onChange={handleSearch}
         />
         </div>
     )
 }
-
 export default SearchBar

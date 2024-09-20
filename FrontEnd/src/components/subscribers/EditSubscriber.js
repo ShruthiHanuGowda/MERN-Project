@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
+import { Context } from '../../App';
 
-function EditSubscriber({ setSubscriberID, setShowText, name, setName, setSubscribedChannel, subscribedChannel, setToggleForm, toggleForm, SubscriberId }) {
+function EditSubscriber() {
+    const { setSubscriberID, setShowText, name, setName, setSubscribedChannel, subscribedChannel, setToggleForm, toggleForm, SubscriberId } = useContext(Context)
     const handleEdit = () => {
-        console.log("name", name)
         setToggleForm(!toggleForm)
         setName(name)
         setSubscribedChannel(subscribedChannel)
