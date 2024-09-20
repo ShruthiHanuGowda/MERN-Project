@@ -14,7 +14,7 @@ import SearchUser from "./components/search/SearchUser";
 export const Context = React.createContext(composeWithDevTools())
 
 function App() {
-  const [subscriber, setsubscriber] = useState("")
+  const [subscriber, setsubscriber] = useState([])
   const [toggle, setToggle] = useState(false)
   const [toggleForm, setToggleForm] = useState(false)
   const [isRefresh, setRefresh] = useState(true)
@@ -31,6 +31,14 @@ function App() {
   const [totalPages, setTotalPages] = useState(0);
   const [filteredUser, setFilteredUser] = useState("")
   const [inputValue, setInputValue] = useState("")
+  const [search, setSearch] = React.useState("");
+
+  const filteredSubscribers = React.useMemo(() => {
+    console.log("subscriberssssss", subscriber, search)
+    return (subscriber ?? []).filter(
+      item => item.name.toLowerCase().includes(search)
+    );
+  }, [search, subscriber]);
 
 
   return (
@@ -39,7 +47,7 @@ function App() {
         subscriber, setsubscriber, toggle, setToggle, toggleForm, setToggleForm, isRefresh, setRefresh,
         name, setName, subscribedChannel, setSubscribedChannel, subscribedChannel, setSubscribedChannel, showText, setShowText, subscriberID, setSubscriberID
         , user, setUser, password, setPassword, login, setLogin, showSubscriber, setShowSubscriber, data, setData, page, setPage, totalPages, setTotalPages
-        , filteredUser, setFilteredUser, inputValue, setInputValue
+        , filteredUser, setFilteredUser, inputValue, setInputValue, filteredSubscribers, setSearch
       }}>
         <div className="App" style={{ display: "flex" }}>
           <div>
