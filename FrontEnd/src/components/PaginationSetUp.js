@@ -12,7 +12,6 @@ function PaginationSetUp() {
             .then((data) => (setsubscriber(data.results), setTotalPages(data.totalPages)))
     }, [page])
 
-
     const handleChange = (event, value) => {
         setPage(value);
     }

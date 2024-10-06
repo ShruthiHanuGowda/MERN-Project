@@ -6,10 +6,12 @@ import {
   Route
 } from "react-router-dom";
 import useLocalStorage from "./customHooks/useLocalStorage";
-import Login from "./components/login/Login"
-import Dashboard from "./components/Dashboard";
+import Login from "./components/authentication/login/Login"
+// import Dashboard from "./components/Dashboard";
+import MainContent from "./components/dashboard/SchedulerTask"
 import Calculations from "./components/calculations/Calculations";
 import SearchUser from "./components/search/SearchUser";
+import SearchCountry from "./Pages/SearchContainer"
 
 export const Context = React.createContext(composeWithDevTools())
 
@@ -34,12 +36,10 @@ function App() {
   const [search, setSearch] = React.useState("");
 
   const filteredSubscribers = React.useMemo(() => {
-    console.log("subscriberssssss", subscriber, search)
     return (subscriber ?? []).filter(
       item => item.name.toLowerCase().includes(search)
     );
   }, [search, subscriber]);
-
 
   return (
     <Router>
@@ -49,11 +49,11 @@ function App() {
         , user, setUser, password, setPassword, login, setLogin, showSubscriber, setShowSubscriber, data, setData, page, setPage, totalPages, setTotalPages
         , filteredUser, setFilteredUser, inputValue, setInputValue, filteredSubscribers, setSearch
       }}>
-        <div className="App" style={{ display: "flex" }}>
+        <div className="App">
           <div>
             <Routes>
               <Route path="/" element={<Login />} />
-              <Route path="/subscriber" element={<Dashboard />} />
+              <Route path="/subscriber" element={<MainContent />} />
               <Route path="/calculation" element={<Calculations />} />
               <Route path="/search" element={<SearchUser />} />
             </Routes>

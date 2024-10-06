@@ -8,15 +8,12 @@ function Register() {
     const [email, setEmail] = useState("")
     const [registerUser, setRegisterUser] = useState("")
 
-    console.log("registerUser", registerUser)
-
     const handleSubmit = (event) => {
         event.preventDefault()
         if (user && email && password !== null) {
             fetchAPI()
         }
     }
-
 
     const fetchAPI = () => {
         const options = {
@@ -45,7 +42,7 @@ function Register() {
     }
 
     return (
-        <div style={{ marginLeft: "10px" }}><form onSubmit={handleSubmit}>
+        <div className='registrationForm'><form onSubmit={handleSubmit}>
             <Grid2 container direction={"column"} spacing={2}>
                 <TextField value={user} label="User Name" onChange={handleUser} />
                 <TextField value={email} label="Email" onChange={handleEmail} />

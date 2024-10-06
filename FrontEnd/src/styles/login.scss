@@ -1,19 +1,53 @@
 .loginContainer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    width: 100vh;
+    /* Full viewport height for centering */
+    padding: 20px;
+    background-color: #f5f5f5;
+    /* Light background for contrast */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
 }
 
-.loginText {
-    margin-top: 10px;
+.centeredContent,
+.loginText,
+.registrationForm {
+    text-align: center;
+    /* Center the text */
+    max-width: 400px;
+    /* Limit width for better appearance */
+    width: 100%;
+    /* Full width to ensure responsiveness */
+    padding: 20px;
+    /* Add padding for better spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Shadow for depth */
+    background: white;
+    /* Background color */
 }
 
-.searchBar {
-    margin-top: 20px;
+
+.main-container {
+    display: flex;
+    // flex-wrap: wrap;
+    height: 100vh;
 }
 
-.pageContainer {
-    margin-top: 50px;
+.main-sub-division {
+    // flex: 1;
+    flex-grow: 1;
+    border-radius: 5px;
+}
+
+.main-sub-division:nth-child(1) {
+    flex-grow: 1;
+}
+
+.main-sub-division:nth-child(2) {
+    flex-grow: 5;
 }

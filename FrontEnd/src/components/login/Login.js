@@ -1,15 +1,15 @@
 import { Button, Grid2, Stack, TextField } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
-import { ApiUrl } from "../../constants/ApiURL"
-import { Context } from "../../App"
+import { ApiUrl } from "../../../constants/ApiURL"
+import { Context } from "../../../App"
 import { useNavigate } from "react-router-dom";
 import "./../../styles/login.scss"
-import Register from '../register/Register';
+import Register from '../../register/Registergister/Register';
 
 function Login() {
     const navigate = useNavigate();
     const [show, setShow] = useState(false)
-    const [showRegister, setshowRegister] = useState(false)
+    const [showRegister, setshowRegister] = useState(true)
     const { user, setUser, password, setPassword, setLogin, login } = useContext(Context)
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -57,35 +57,60 @@ function Login() {
 
     const handleRegisterClick = () => {
         setshowRegister(!showRegister)
-        setShow(false)
+        setShow(!show)
     }
     return (
         <div className="loginContainer">
-            <div>
+            <div className="centeredContent">
                 <Stack spacing={2} direction="row">
-                    <Button style={{ textTransform: "none" }} variant="contained" label="Submit" type="submit" onClick={handleRegisterClick}>Register</Button>
-                    <Button style={{ textTransform: "none" }} variant="contained" label="Submit" type="submit" onClick={handleLoginClick}>Login</Button>
+                    <Button
+                        style={{ textTransform: "none" }}
+                        variant="contained"
+                        onClick={handleRegisterClick}
+                    >
+                        Register
+                    </Button>
+                    <Button
+                        style={{ textTransform: "none" }}
+                        variant="contained"
+                        onClick={handleLoginClick}
+                    >
+                        Login
+                    </Button>
                 </Stack>
             </div>
-            {
-                show && <div style={{ marginLeft: "10px" }} className='loginText'>
+
+            {show && (
+                <div className='loginText'>
                     <form onSubmit={handleSubmit}>
-                        <Grid2 container direction={"column"} spacing={2}>
-                            <TextField value={user} label="User Name" onChange={handleUser} />
-                            <TextField value={password} label="Password" onChange={handlePassword} />
+                        <Grid2 container direction="column" spacing={2}>
+                            <TextField
+                                id="username"
+                                value={user}
+                                label="User Name"
+                                onChange={handleUser}
+                                required
+                            />
+                            <TextField
+                                id="password"
+                                type="password"
+                                value={password}
+                                label="Password"
+                                onChange={handlePassword}
+                                required
+                            />
                         </Grid2>
                         <div style={{ marginTop: "10px" }}>
-                            <Button variant="contained" label="Submit" type="submit">Submit</Button>
+                            <Button variant="contained" type="submit">Submit</Button>
                         </div>
                     </form>
-                    <h1>{login === "success" ? "login successfull" : login}</h1>
+                    <h1>{login === "success" ? "Login successful" : login}</h1>
                 </div>
-            }
+            )}
 
-            {
-                showRegister && <Register />
-            }
-        </div >
+            {showRegister && <Register />}
+        </div>
+
     )
 }
 
